@@ -25,7 +25,9 @@
     <hr>
       <builder bid="cardlist">
         <div class="card">
-          <img src="{{cardPic}}">
+          <div class="{{pics}}">
+            <img src="{{cardPic}}">
+          </div>
           <div class="card-desc">
             <p>{{cardTitle}}</p>
           </div>
@@ -35,7 +37,7 @@
     <script src="./builder.js" charset="utf-8"></script>
     <script type="text/javascript">
       let data = {
-        cardTitle: ["Some text","Some text","Some text","Some text","Some text","Some text"],
+        cardTitle: ["Some text","Some text","Some text","Some text"],
         cardPic: ["https://picsum.photos/600/?image=335",
         "https://picsum.photos/600/?image=122",
         "https://picsum.photos/600/?image=323",
@@ -45,7 +47,7 @@
         "https://picsum.photos/600/?image=211"]
       };
       //console.log(builder.build("1", data, 6));
-      builder.render("cardlist", data, 7);
+      builder.render("cardlist", data);
     </script>
   </body>
 </html>

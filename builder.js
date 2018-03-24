@@ -14,8 +14,9 @@ NodeList.prototype.filter = function(callback, context) {
 let builder = {
   "list": allEls,
   "render": (bID, data, els) => {
-    let coreEl = builder.list.filter(n=>n.getAttribute("bid")==bID)
-    let nodeString = coreEl[0].innerHTML.repeat(els);
+    let coreEl = builder.list.filter(n=>n.getAttribute("bid")==bID);
+    let qt = Math.min(...Object.keys(data).map(e=>data[e].length)) || els;
+    let nodeString = coreEl[0].innerHTML.repeat(qt);
     Object.keys(data).forEach((el,i)=>{
       data[el].forEach((dataEl,dataI)=>{
         nodeString = nodeString.replace(`{{${el}}}`,dataEl);
@@ -25,8 +26,9 @@ let builder = {
     coreEl[0].style.visibility = "visible";
   },
   "build": (bID, data, els) => {
-    let coreEl = builder.list.filter(n=>n.getAttribute("bid")==bID)
-    let nodeString = coreEl[0].innerHTML.repeat(els);
+    let coreEl = builder.list.filter(n=>n.getAttribute("bid")==bID);
+    let qt = Math.min(...Object.keys(data).map(e=>data[e].length)) || els;
+    let nodeString = coreEl[0].innerHTML.repeat(qt);
     let newEl = coreEl[0];
     Object.keys(data).forEach((el,i)=>{
       data[el].forEach((dataEl,dataI)=>{
